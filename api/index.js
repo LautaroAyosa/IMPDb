@@ -8,16 +8,18 @@ const server = http.createServer(app)
 
 // Verify connection to the DB and listen app
 const main = async () => {
-
   try {
+    // try the connection to sequelize 
     await sequelize.authenticate()
     logger.info('Connected to the DB successfully')
 
+    // listen app at port #
     const PORT = config.PORT || 3003
     server.listen(PORT, () => {
       logger.info(`Server running on port ${PORT}`)
     })
   } catch (err) {
+    // log error if the connection with sequelize failed
     logger.info('Unable to connect to the database:', err)
   }
 }
