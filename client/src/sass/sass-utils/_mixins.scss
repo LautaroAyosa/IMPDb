@@ -1,0 +1,64 @@
+$breakpoint-small: 600px;
+$breakpoint-med-small: 960px;
+$breakpoint-med: 1175px;
+
+@mixin screen($size, $type: max, $pixels: $breakpoint-small) {
+  @if $size == 'small' {
+    @media screen and ($type + -width: $breakpoint-small) {
+        @content;
+    }
+  }
+  @else if $size == 'med-small' {
+    @media screen and ($type + -width: $breakpoint-med-small) {
+        @content;
+    }
+  }
+  @else if $size == 'medium' {
+    @media screen and ($type + -width: $breakpoint-med-small) {
+        @content;
+    }
+  }
+ @else if $size == 'large' {
+    @media screen and ($type + -width: $breakpoint-med) {
+        @content;
+    }
+  }
+  @else if $size == 'custom' {
+    @media screen and ($type + -width: $pixels + px) {
+     @content;
+    }
+  }
+  @else {
+    @content;
+  }
+}
+
+@mixin center($position) {
+    position: absolute;
+
+    @if $position == 'vertical' {
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+    @else if $position == 'horizontal' {
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translate(-50%);
+    }
+    @else if $position == 'both' {
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}
+
+@mixin container($background, $padding, $borderRadius) {
+  background: $background;
+  padding: $padding;
+  border-radius: $borderRadius;
+}

@@ -1,0 +1,18 @@
+.baseNotification {
+    padding: 2px 0px;
+    height: 20px;
+}
+
+.success {
+    @extend .baseNotification;
+    color: #aad576;
+    background: rgb(44,74,39);
+    background: linear-gradient(45deg, rgba(44,74,39,1) 0%, rgba(56,102,65,1) 100%);
+}
+
+.error {
+    @extend .baseNotification;
+    color: #ef233c;
+    background: rgb(79,0,11);
+    background: linear-gradient(45deg, rgba(79,0,11,1) 0%, rgba(116,25,25,1) 100%);
+}
