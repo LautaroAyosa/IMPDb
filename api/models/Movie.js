@@ -18,22 +18,6 @@ const Movie = sequelize.define('movies', {
     }
 })
 
-Movie.hasMany(Person, {
-    through: 'Actors_Movies',
-    as: 'Actor',
-    foreignKey: 'ActorId'
-})
-Movie.hasMany(Person, {
-    through: 'Directors_Movies',
-    as: 'Director',
-    foreignKey: 'directorId'
-})
-Movie.hasMany(Person, {
-    through: 'Producers_Movies',
-    as: 'Producer',
-    foreignKey: 'producerId'
-})
-
 module.exports = {
     Movie
 }
