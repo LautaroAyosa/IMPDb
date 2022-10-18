@@ -13,7 +13,7 @@ require('./models/Movie')
 const main = async () => {
   try {
     // try the connection to sequelize 
-    await sequelize.sync({force: true})
+    await sequelize.sync({force: false})
     logger.info('Connected to the DB successfully')
 
     // listen app at port #
