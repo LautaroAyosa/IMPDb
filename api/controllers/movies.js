@@ -2,7 +2,26 @@ const { Movie } = require('../models/Movie')
 const { Person } = require('../models/Person')
 
 const getMovies = async (req, res) => {
-    const movies = await Movie.findAll()
+    const movies = await Movie.findAll({
+        include: [
+            {
+                model: Person, 
+                as: 'Cast',
+                attributes: { exclude: ['id', 'createdAt', 'updatedAt']}
+            },
+            {
+                model: Person, 
+                as: 'Directors',
+                attributes: { exclude: ['id', 'createdAt', 'updatedAt']}
+            },
+            {
+                model: Person, 
+                as: 'Producers',
+                attributes: { exclude: ['id', 'createdAt', 'updatedAt']}
+            }
+        ],
+        attributes: {exclude: ['createdAt', 'updatedAt']}
+    })
     res.status(200).json(movies)
 }
 
@@ -10,10 +29,24 @@ const getOneMovie = async (req, res) => {
     const id = req.params.id
     const movie = await Movie.findOne({
         where: {id},
-        include: {
-            model: Person,
-            as: 'Actor'
-        }
+        include: [
+            {
+                model: Person, 
+                as: 'Cast',
+                attributes: { exclude: ['id', 'createdAt', 'updatedAt']}
+            },
+            {
+                model: Person, 
+                as: 'Directors',
+                attributes: { exclude: ['id', 'createdAt', 'updatedAt']}
+            },
+            {
+                model: Person, 
+                as: 'Producers',
+                attributes: { exclude: ['id', 'createdAt', 'updatedAt']}
+            }
+        ],
+        attributes: {exclude: ['createdAt', 'updatedAt']}
     })
     res.status(200).json(movie)
 }
@@ -51,8 +84,31 @@ const updateMovie = async (req, res) => {
     }
 }
 
-const getAllActors = async (req, res) => {
-    const id = req.params.id
+const addActor = async (req, res) => {
+    const { actor } = req.body
+    const id = req.params.id 
+    const currentMovie = await Movie.findOne({where: {id}})
+    currentMovie.addCast(actor)
+
+    res.status(200).json(currentMovie)
+}
+
+const addProducer = async (req, res) => {
+    const { producer } = req.body
+    const id = req.params.id 
+    const currentMovie = await Movie.findOne({where: {id}})
+    currentMovie.addProducer(producer)
+
+    res.status(200).json(currentMovie)
+}
+
+const addDirector = async (req, res) => {
+    const { director } = req.body
+    const id = req.params.id 
+    const currentMovie = await Movie.findOne({where: {id}})
+    currentMovie.addDirector(director)
+
+    res.status(200).json(currentMovie)
 }
 
 module.exports = {
@@ -60,5 +116,8 @@ module.exports = {
     getOneMovie,
     createMovie,
     deleteMovie,
-    updateMovie
+    updateMovie,
+    addActor,
+    addDirector,
+    addProducer
 }
