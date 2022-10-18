@@ -1,0 +1,8 @@
+POST http://localhost:3003/api/movies/
+Content-Type: application/json
+
+{
+    "title": "The Lord of the Rings: The - of the Ring",
+    "year": "2001"
+}
+

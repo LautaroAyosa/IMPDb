@@ -1,0 +1,8 @@
+PATCH  http://localhost:3003/api/movies/1/addProducer
+Content-Type: application/json
+
+{
+    "producer": 1
+}
+
+// URL structure ->   api/movies/:movieId/addProducer

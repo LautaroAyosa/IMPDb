@@ -1,0 +1,9 @@
+PATCH  http://localhost:3003/api/movies/1/addActor
+Content-Type: application/json
+
+{
+    "actor": [1, 2, 3]
+}
+
+
+// URL structure ->   api/movies/:movieId/addActor
