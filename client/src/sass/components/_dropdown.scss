@@ -1,0 +1,12 @@
+.dropdown {
+    z-index: 100;
+    &:hover {
+        ul {
+            display: block;
+        }
+    }
+    ul {
+        display: none;
+        position: absolute;
+    }
+}
