@@ -1,0 +1,8 @@
+PATCH  http://localhost:3003/api/movies/1/addDirector
+Content-Type: application/json
+
+{
+    "director": 2
+}
+
+// URL structure ->   api/movies/:movieId/addDirector

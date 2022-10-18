@@ -1,0 +1,11 @@
+POST http://localhost:3003/api/persons
+Content-Type: application/json
+
+{
+    "name": "John",
+    "lastName": "Doe",
+    "age": 33,
+    "acted": [1, 2],
+    "directed": 1,
+    "produced": 1
+}
