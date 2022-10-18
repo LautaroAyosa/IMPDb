@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize')
 const { sequelize } = require('./index')
+const { Person } = require('./Person')
 
 const Movie = sequelize.define('movies', {
     id: {
@@ -7,8 +8,14 @@ const Movie = sequelize.define('movies', {
         primaryKey: true,
         autoIncrement: true
     },
-    title: DataTypes.STRING,
-    year: DataTypes.INTEGER,
+    title: { 
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    year: { 
+        type: DataTypes.INTEGER,
+        allowNull: false
+    }
 })
 
 module.exports = {

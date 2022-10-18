@@ -1,4 +1,5 @@
 const { Movie } = require('../models/Movie')
+const { Person } = require('../models/Person')
 
 const getMovies = async (req, res) => {
     const movies = await Movie.findAll()
@@ -7,7 +8,13 @@ const getMovies = async (req, res) => {
 
 const getOneMovie = async (req, res) => {
     const id = req.params.id
-    const movie = await Movie.findOne({where: {id}})
+    const movie = await Movie.findOne({
+        where: {id},
+        include: {
+            model: Person,
+            as: 'Actor'
+        }
+    })
     res.status(200).json(movie)
 }
 
@@ -42,6 +49,10 @@ const updateMovie = async (req, res) => {
         })
         res.status(200).json(movieToUpdate)
     }
+}
+
+const getAllActors = async (req, res) => {
+    const id = req.params.id
 }
 
 module.exports = {
