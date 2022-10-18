@@ -32,7 +32,12 @@ const App = () => {
 
           <Routes>
             <Route path='/movies' element={<List show='movies' />} /> 
+            <Route path='/movies/:id' element={<SingleContent />} />
             <Route path='/people' element={<List show='people'/>} />
+
+            <Route path='/dashboard/' element={<DashboardLayout/>}>
+              
+            </Route>
 
             <Route path='*' element={<NotFound />}/>
           </Routes>
