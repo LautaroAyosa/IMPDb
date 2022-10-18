@@ -2,7 +2,7 @@ const { Person } = require('../models/Person')
 
 
 const getPersons = async (req, res) => {
-    const persons = await Person.findAll({include: ['Actor', 'Director', 'Producer']})
+    const persons = await Person.findAll({include: ['Actors', 'Directors', 'Producers']})
 
     res.status(200).json(persons)
 }
@@ -11,7 +11,11 @@ const getOnePerson = async (req, res) => {
     const id = req.params.id
     const person = await Person.findOne({ 
         where: {id},
-        include: ['Actor', 'Director', 'Producer']
+        include: [{
+            model: Person,
+            as: 'Actors',
+            attributes: {exclude: ['createdAt', 'updatedAt', 'Actors_Movies']}
+        }]
     })
 
     res.status(200).json(person)
@@ -29,7 +33,7 @@ const createPerson = async (req, res) => {
     newPerson.addDirector(directed)
     newPerson.addProducer(produced)
 
-    res.status(200).json(newPerson.getActor())
+    res.status(200).json(newPerson)
 }
 
 const deletePerson = async (req, res) => {
@@ -57,15 +61,10 @@ const updatePerson = async (req, res) => {
     }
 }
 
-const addActor = async (req, res) => {
-    const currentPerson = await Person.findOne({where: {id}})
-
-}
-
 module.exports = {
     getPersons,
     getOnePerson,
     createPerson,
     deletePerson,
-    updatePerson
+    updatePerson,
 }
