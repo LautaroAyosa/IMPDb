@@ -21,7 +21,7 @@ const Person = sequelize.define('persons', {
 
 Person.belongsToMany(Movie, {
     through: 'Actors_Movies',
-    as: 'Actors',
+    as: 'ActedIn',
     foreignKey: 'actorId'
 })
 Movie.belongsToMany(Person, {
@@ -32,7 +32,7 @@ Movie.belongsToMany(Person, {
 
 Person.belongsToMany(Movie, {
     through: 'Directors_Movies',
-    as: 'Directors',
+    as: 'Directed',
     foreignKey: 'directorId'
 })
 Movie.belongsToMany(Person, {
@@ -43,7 +43,7 @@ Movie.belongsToMany(Person, {
 
 Person.belongsToMany(Movie, {
     through: 'Producers_Movies',
-    as: 'Producers',
+    as: 'Produced',
     foreignKey: 'producerId'
 })
 Movie.belongsToMany(Person, {
