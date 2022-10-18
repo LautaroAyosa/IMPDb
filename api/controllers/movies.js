@@ -6,7 +6,7 @@ const getMovies = async (req, res) => {
         include: [
             {
                 model: Person, 
-                as: 'Actors',
+                as: 'Cast',
                 attributes: { exclude: ['id', 'createdAt', 'updatedAt']}
             },
             {
@@ -32,7 +32,7 @@ const getOneMovie = async (req, res) => {
         include: [
             {
                 model: Person, 
-                as: 'Actors',
+                as: 'Cast',
                 attributes: { exclude: ['id', 'createdAt', 'updatedAt']}
             },
             {
@@ -88,7 +88,7 @@ const addActor = async (req, res) => {
     const { actor } = req.body
     const id = req.params.id 
     const currentMovie = await Movie.findOne({where: {id}})
-    currentMovie.addActor(actor)
+    currentMovie.addCast(actor)
 
     res.status(200).json(currentMovie)
 }
@@ -97,7 +97,7 @@ const addProducer = async (req, res) => {
     const { producer } = req.body
     const id = req.params.id 
     const currentMovie = await Movie.findOne({where: {id}})
-    currentMovie.addActor(producer)
+    currentMovie.addProducer(producer)
 
     res.status(200).json(currentMovie)
 }
@@ -106,7 +106,7 @@ const addDirector = async (req, res) => {
     const { director } = req.body
     const id = req.params.id 
     const currentMovie = await Movie.findOne({where: {id}})
-    currentMovie.addActor(director)
+    currentMovie.addDirector(director)
 
     res.status(200).json(currentMovie)
 }

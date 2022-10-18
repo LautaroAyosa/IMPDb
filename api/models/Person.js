@@ -26,7 +26,7 @@ Person.belongsToMany(Movie, {
 })
 Movie.belongsToMany(Person, {
     through: 'Actors_Movies',
-    as: 'Actors',
+    as: 'Cast',
     foreignKey: 'movieId'
 })
 
