@@ -6,11 +6,14 @@ const { sequelize } = require('./models/index.js')
 
 const server = http.createServer(app)
 
+require('./models/Person')
+require('./models/Movie')
+
 // Verify connection to the DB and listen app
 const main = async () => {
   try {
     // try the connection to sequelize 
-    await sequelize.authenticate()
+    await sequelize.sync({force: true})
     logger.info('Connected to the DB successfully')
 
     // listen app at port #
