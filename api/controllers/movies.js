@@ -7,17 +7,17 @@ const getMovies = async (req, res) => {
             {
                 model: Person, 
                 as: 'Cast',
-                attributes: { exclude: ['id', 'createdAt', 'updatedAt']}
+                attributes: { exclude: ['createdAt', 'updatedAt']}
             },
             {
                 model: Person, 
                 as: 'Directors',
-                attributes: { exclude: ['id', 'createdAt', 'updatedAt']}
+                attributes: { exclude: ['createdAt', 'updatedAt']}
             },
             {
                 model: Person, 
                 as: 'Producers',
-                attributes: { exclude: ['id', 'createdAt', 'updatedAt']}
+                attributes: { exclude: ['createdAt', 'updatedAt']}
             }
         ],
         attributes: {exclude: ['createdAt', 'updatedAt']}
@@ -34,17 +34,17 @@ const getOneMovie = async (req, res) => {
             {
                 model: Person, 
                 as: 'Cast',
-                attributes: { exclude: ['id', 'createdAt', 'updatedAt']}
+                attributes: { exclude: ['createdAt', 'updatedAt']}
             },
             {
                 model: Person, 
                 as: 'Directors',
-                attributes: { exclude: ['id', 'createdAt', 'updatedAt']}
+                attributes: { exclude: ['createdAt', 'updatedAt']}
             },
             {
                 model: Person, 
                 as: 'Producers',
-                attributes: { exclude: ['id', 'createdAt', 'updatedAt']}
+                attributes: { exclude: ['createdAt', 'updatedAt']}
             }
         ],
         attributes: {exclude: ['createdAt', 'updatedAt']}

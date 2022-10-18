@@ -6,6 +6,15 @@ nav {
     height: 50px;
     font-size: 14px;
     z-index: 100;
+    .logo {
+        height: 30px;
+        transition: .2s;
+        &:hover {
+            transition: .2s;
+            box-shadow: $box-shadow;
+            transform: scale(1.05);
+        }
+    }
     ul {
         display: flex;
         list-style: none;
@@ -20,7 +29,7 @@ nav {
         li {
             padding: 10px 20px;
         }
-        .dropdown.userMenu {
+        .dropdown.dropdownMenu {
             ul {
                 margin-top: 10px;
                 margin-left: -10px;

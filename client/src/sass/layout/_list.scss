@@ -1,0 +1,39 @@
+.list_container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 1240px;
+    .single_card {
+        display: flex;
+        align-items: center;
+        background-color: white;
+        width: 300px;
+        height: 180px;
+        margin: 5px 0px;
+        border-radius: 20px;
+        box-shadow: $box-shadow;
+        margin: 10px;
+        p {
+            margin: 0px;
+        }
+
+        .single_card-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 80%;
+            width: 100%;
+            padding: 10px 20px;
+            color: black;
+            .title {
+                line-height: 22px;
+                margin: 5px 0px;
+            }
+            .subtitle {
+                font-style: italic;
+                font-size: 12px;
+            }
+        }
+    }
+
+}
