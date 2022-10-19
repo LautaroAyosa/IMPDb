@@ -11,7 +11,9 @@ import NotFound from './components/NotFound/NotFound';
 import List from './components/Blogs/BlogsList/List';
 import SingleContent from './components/SingleContent/SingleContent';
 import DashboardLayout from './components/DashboardLayout/DashboardLayout'
+import MoviesForm from './components/Forms/MovieForms/MoviesForm'
 import { initPersons } from './redux/reducers/personsReducer';
+import NewPersonForm from './components/Forms/PersonForms/NewPersonForm';
 
 
 const App = () => {
@@ -36,7 +38,8 @@ const App = () => {
             <Route path='/people' element={<List show='people'/>} />
 
             <Route path='/dashboard/' element={<DashboardLayout/>}>
-              
+              <Route path='new-movie' element={<MoviesForm />} />
+              <Route path='new-person' element={<NewPersonForm />} />
             </Route>
 
             <Route path='*' element={<NotFound />}/>

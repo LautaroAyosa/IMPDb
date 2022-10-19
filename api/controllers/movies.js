@@ -62,11 +62,33 @@ const createMovie = async (req, res) => {
             title,
             year
         })
-        newMovie.addCast(cast)
-        newMovie.addProducer(producer)
-        newMovie.addDirector(director)
+        await newMovie.addCast(cast)
+        await newMovie.addProducer(producer)
+        await newMovie.addDirector(director)
+
+        const addedMovie = await Movie.findOne({
+            where: {id: newMovie.id},
+            include: [
+                {
+                    model: Person, 
+                    as: 'Cast',
+                    attributes: { exclude: ['createdAt', 'updatedAt']}
+                },
+                {
+                    model: Person, 
+                    as: 'Directors',
+                    attributes: { exclude: ['createdAt', 'updatedAt']}
+                },
+                {
+                    model: Person, 
+                    as: 'Producers',
+                    attributes: { exclude: ['createdAt', 'updatedAt']}
+                }
+            ],
+            attributes: {exclude: ['createdAt', 'updatedAt']}
+        }) 
     
-        res.status(201).json(newMovie)
+        res.status(201).json(addedMovie)
     } catch (err) {
         console.log(err)
     }
