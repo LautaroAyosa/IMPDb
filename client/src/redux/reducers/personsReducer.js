@@ -33,14 +33,13 @@ export const initPersons = () => {
 export const createPerson = (person) => {
     return async (dispatch) => {
         try {
-            await personService.setToken(JSON.parse(window.localStorage.getItem('loggedUser')).token)
-            const addedperson = await personService.createperson(person)
+            const addedperson = await personService.create(person)
             dispatch( {
                 type: '@persons/new_person',
                 payload: addedperson
             })
             dispatch(createNotification(
-                `New person "${addedperson.title}" by ${addedperson.author} added successfuly!`,
+                `New person "${addedperson.name} ${addedperson.lastName}" added successfuly!`,
                 'success'
             ))
         } catch (error) {
@@ -52,13 +51,12 @@ export const createPerson = (person) => {
 export const updatePerson = (id, personToUpdate) => {
     return async (dispatch) => {
         try {
-            await personService.setToken(JSON.parse(window.localStorage.getItem('loggedUser')).token)
-            const updatedperson = await personService.update(id, personToUpdate)
+            const updatedPerson = await personService.update(id, personToUpdate)
             dispatch({
                 type: '@persons/update_person',
-                payload: {id: id, person: updatedperson}
+                payload: {id: id, person: updatedPerson}
             })
-            dispatch(createNotification(`${updatedperson.title} updated successfuly`, 'success'))
+            dispatch(createNotification(`${updatedPerson.name} ${updatedPerson.lastName} updated successfuly`, 'success'))
         } catch (error) {
             dispatch(createNotification(error.response.data.error, 'error'))
         }
@@ -74,7 +72,7 @@ export const removePerson = (person) => {
                 payload: person.id
             })
             dispatch(createNotification(
-                `${person.title} by ${person.author} removed successfuly!`,
+                `${person.name} ${person.lastName} removed successfuly!`,
                'success'
             ))
         } catch (error) {

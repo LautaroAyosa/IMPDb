@@ -8,8 +8,8 @@ const moviesReducer = (state = [], action) => {
         case '@movies/new_movie':
             return [...state, action.payload]
         case '@movies/update_movie':
-            const updatedmovie = action.payload.movie
-            return state.map(movie => (movie.id !== action.payload.id ? movie : updatedmovie))
+            const updatedMovie = action.payload.movie
+            return state.map(movie => (movie.id !== action.payload.id ? movie : updatedMovie))
         case '@movies/add_like':
             console.log(action.payload)
             return state.map(movie => (movie.id !== action.payload.id ? movie.likes: action.payload.likes))
@@ -33,14 +33,13 @@ export const initMovies = () => {
 export const createMovie = (movie) => {
     return async (dispatch) => {
         try {
-            await movieService.setToken(JSON.parse(window.localStorage.getItem('loggedUser')).token)
-            const addedmovie = await movieService.createmovie(movie)
+            const addedMovie = await movieService.create(movie)
             dispatch( {
                 type: '@movies/new_movie',
-                payload: addedmovie
+                payload: addedMovie
             })
             dispatch(createNotification(
-                `New movie "${addedmovie.title}" by ${addedmovie.author} added successfuly!`,
+                `New movie "${addedMovie.title}" added successfuly!`,
                 'success'
             ))
         } catch (error) {
@@ -52,13 +51,12 @@ export const createMovie = (movie) => {
 export const updateMovie = (id, movieToUpdate) => {
     return async (dispatch) => {
         try {
-            await movieService.setToken(JSON.parse(window.localStorage.getItem('loggedUser')).token)
             const updatedmovie = await movieService.update(id, movieToUpdate)
             dispatch({
                 type: '@movies/update_movie',
                 payload: {id: id, movie: updatedmovie}
             })
-            dispatch(createNotification(`${updatedmovie.title} updated successfuly`, 'success'))
+            dispatch(createNotification(`"${updatedmovie.title}" updated successfuly`, 'success'))
         } catch (error) {
             dispatch(createNotification(error.response.data.error, 'error'))
         }
@@ -74,7 +72,7 @@ export const removeMovie = (movie) => {
                 payload: movie.id
             })
             dispatch(createNotification(
-                `${movie.title} by ${movie.author} removed successfuly!`,
+                `"${movie.title}" removed successfuly!`,
                'success'
             ))
         } catch (error) {
