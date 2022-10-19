@@ -1,0 +1,38 @@
+form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10px 0px;
+    input {
+        @extend .input;
+    }
+    textarea {
+        @extend .input;
+        resize: none;
+        height: 200px;
+    }
+    select {
+        @extend .input;
+    }
+    .col1-2 {
+        width: 49%;
+    }
+    .full {
+        width: 100%;
+    }
+}
+
+.input {
+    margin-bottom: 10px;
+    padding: 10px 16px;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.08);
+    &::placeholder {
+        color: rgb(92, 92, 92);
+        font-size: 12px;
+    }
+}

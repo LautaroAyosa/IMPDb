@@ -1,13 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import blogsReducer from "./reducers/blogsReducer";
-import filterReducer from "./reducers/filterReducer";
+import moviesReducer from "./reducers/moviesReducer";
+import personsReducer from "./reducers/personsReducer";
 import notificationReducer from "./reducers/notificationReducer";
 
 const store = configureStore({
   reducer: {
-    blogs: blogsReducer,
-    filter: filterReducer,
+    movies: moviesReducer,
+    persons: personsReducer,
     notification: notificationReducer,
   }
 });
