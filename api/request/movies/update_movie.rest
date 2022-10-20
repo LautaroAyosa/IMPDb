@@ -3,7 +3,17 @@ Content-Type: application/json
 
 {
     "title": "The Lord of the Rings: The Fellowship of the Ring",
-    "year": 2001
+    "year": 2001,
+    "cast": [1, 3],
+    "producers": 1,
+    "directors": 2
 }
 
 // URL structure ->   api/movies/:movieId
+
+// I modified the name from "The Lord of the Rings: The - of the Ring" to the one in the "title" field
+
+// IMPORTANT!
+// Since this is a RESTfull API, the PUT request should be done with a complete body.
+// That means that you should add the cast, producers and directors, even if you are not modifying them.
+// If you don't do this, the empty fields will erase that data from the DB.

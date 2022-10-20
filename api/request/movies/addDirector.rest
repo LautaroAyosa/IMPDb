@@ -6,3 +6,6 @@ Content-Type: application/json
 }
 
 // URL structure ->   api/movies/:movieId/addDirector
+
+// Since this is a PATCH request, there's no need to send all the fields.
+// This request will update only the sent data

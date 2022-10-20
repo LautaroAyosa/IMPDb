@@ -9,3 +9,5 @@ Content-Type: application/json
     "directed": 1,
     "produced": 1
 }
+
+// You can add movies later with a PUT request.
