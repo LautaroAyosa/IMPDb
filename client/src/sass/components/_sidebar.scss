@@ -1,0 +1,41 @@
+
+.sideBar {
+    padding: 30px 30px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: $box-shadow;
+    min-height: 300px;
+
+    ul {
+        padding: 0px;
+        margin: 0px;
+    }
+    
+    li {
+        list-style: none;
+        margin-left: 20px;
+        transition: background-color 0.2s;
+        font-size: 14px;
+        &:hover {
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: $hoverGreyBackground;
+            transition: background-color 0.2s;
+        }
+        a {
+            margin: 4px 0px;
+            padding: 6px 20px;
+            display: block;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+    }
+    h2 {
+        margin: 0px;
+    }
+    h4 {
+        margin: 10px 0px 0px 0px;
+        padding-left: 20px;
+    }
+}

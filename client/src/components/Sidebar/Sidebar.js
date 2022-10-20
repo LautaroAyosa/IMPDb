@@ -5,7 +5,7 @@ const Sidebar = (props) => {
         <aside className="sideBar">
             <h2>{props.title}</h2>
             <ul>
-                {props.children.map((child, i) => <li key={i}>{child}</li>)}
+                {props.children.map((child, i) => <span key={i}>{child}</span>)}
             </ul>
         </aside>
     )

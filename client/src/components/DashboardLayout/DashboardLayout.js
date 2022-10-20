@@ -13,9 +13,9 @@ const DashboardLayout = () => {
                 <div className="col-2Container">
                     <Sidebar title='Dashboard'>
                         <h4 className="sidebar-subtitle">Movies</h4>
-                        <NavLink to="/dashboard/new-movie" >New Movie</NavLink>
+                        <li><NavLink to="/dashboard/new-movie" >New Movie</NavLink></li>
                         <h4 className="sidebar-subtitle">People</h4>
-                        <NavLink to="/dashboard/new-person" >New Person</NavLink>
+                        <li><NavLink to="/dashboard/new-person" >New Person</NavLink></li>
                     </Sidebar>
                     <main>
                         <Outlet />
