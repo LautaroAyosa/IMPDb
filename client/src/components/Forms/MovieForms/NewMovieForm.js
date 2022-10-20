@@ -37,53 +37,59 @@ const NewMovieForm = () => {
   })
 
   return (
-    <form>
-      <input className='col1-2' placeholder='Title' onChange={handleInputChange} value={newMovie.title} name='title' />
-      <input className='col1-2' placeholder='Year' onChange={handleInputChange} value={newMovie.year} name='year' />
-      <Select
-        data={myData}
-        selectMultiple={true}
-        label="Cast"
-        filter={true}
-        onChange={(event) => {
-          setNewMovie({...newMovie, [`cast`]: event.value})
-        }}
-        inputProps={{
-            inputStyle: 'outline',
-            labelStyle: 'stacked',
-            placeholder: 'Please select...'
-        }}
-      />
-      <Select
-        data={myData}
-        selectMultiple={true}
-        label="Producers"
-        filter={true}
-        onChange={(event) => {
-          setNewMovie({...newMovie, [`producer`]: event.value})
-        }}
-        inputProps={{
-            inputStyle: 'outline',
-            labelStyle: 'stacked',
-            placeholder: 'Please select...'
-        }}
-      />
-      <Select
-        data={myData}
-        selectMultiple={true}
-        label="Directors"
-        filter={true}
-        onChange={(event) => {
-          setNewMovie({...newMovie, [`director`]: event.value})
-        }}
-        inputProps={{
-            inputStyle: 'outline',
-            labelStyle: 'stacked',
-            placeholder: 'Please select...'
-        }}
-      />
-      <button className='primaryButton' onClick={handleSubmit}>Create new blog</button>
-    </form>
+    <div>
+      <h2>Add a New Movie</h2>
+      <form>
+        <input className='' style={{flex: 1, marginRight: '1%'}} placeholder='Title' onChange={handleInputChange} value={newMovie.title} name='title' />
+        <input className='col15' placeholder='Year' onChange={handleInputChange} value={newMovie.year} name='year' />
+        <Select
+          data={myData}
+          selectMultiple={true}
+          label="Cast"
+          filter={true}
+          onChange={(event) => {
+            setNewMovie({...newMovie, [`cast`]: event.value})
+          }}
+          inputProps={{
+              cssClass: 'full mobiscroll-select',
+              inputStyle: 'box',
+              labelStyle: 'stacked',
+              placeholder: 'Please select...'
+          }}
+        />
+        <Select
+          data={myData}
+          selectMultiple={true}
+          label="Producers"
+          filter={true}
+          onChange={(event) => {
+            setNewMovie({...newMovie, [`producer`]: event.value})
+          }}
+          inputProps={{
+              cssClass: 'full mobiscroll-select',
+              inputStyle: 'box',
+              labelStyle: 'stacked',
+              placeholder: 'Please select...'
+          }}
+        />
+        <Select
+          data={myData}
+          selectMultiple={true}
+          label="Directors"
+          filter={true}
+          onChange={(event) => {
+            setNewMovie({...newMovie, [`director`]: event.value})
+          }}
+          inputProps={{
+              cssClass: 'full mobiscroll-select',
+              inputStyle: 'box',
+              labelStyle: 'stacked',
+              placeholder: 'Please select...'
+          }}
+        />
+        <button className='primaryButton' onClick={handleSubmit}>Create New Movie</button>
+      </form>
+    </div>
   )
 }
 
