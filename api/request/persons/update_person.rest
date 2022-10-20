@@ -4,8 +4,26 @@ Content-Type: application/json
 {
     "name": "John",
     "lastName": "Donut",
-    "age": 64,
+    "age": 24,
     "acted": 2,
-    "produced": null,
-    "directed": 1,
+    "produced": 2,
+    "directed": 1
 }
+
+// URL structure ->   api/persons/:personId
+
+// You can remove movies from any person by simply updating them without that movieId
+// Try the following:
+# {
+#     "name": "John",
+#     "lastName": "Donut",
+#     "age": 24,
+#     "acted": 2,
+#     "produced": null,           //OR simply remove the entire line
+#     "directed": 1
+# }
+
+// IMPORTANT!
+// Since this is a RESTfull API, the PUT request should be done with a complete body.
+// That means that you should add the acted, produced and directed fields, even if you are not modifying them.
+// If you don't do this, the empty fields will erase that data from the DB.

@@ -3,6 +3,14 @@ Content-Type: application/json
 
 {
     "title": "The Lord of the Rings: The - of the Ring",
-    "year": "2001"
+    "year": "2001",
+    "cast": [1, 3],
+    "producers": 1,
+    "directors": 2
 }
 
+// IMPORTANT!
+// You can also add a cast, producers and directors directly at creation.
+// Just add another item with the names "cast", "producers" and/or "directors"
+// you can add only one (no need to send it as an array, you can put only the number)
+// or you can add multiple persons with an array
