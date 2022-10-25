@@ -23,7 +23,7 @@ h6 {
   font-size: 18px;
 }
 
-button, .secondaryButton, .likeBlogButton, .removeBlogButton {
+button, .secondary-button, .remove-button {
   cursor: pointer;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
   border: solid 1px #0060df;
@@ -39,49 +39,70 @@ button, .secondaryButton, .likeBlogButton, .removeBlogButton {
   font-size: 16px;
 }
 
-.primaryButton {
+.primary-button, .toggle-edit {
   background-color: #0060df;
   color: white;
   padding: 8px 30px;
   font-weight: 500;
 }
 
-.primaryButton:hover {
+.primary-button:hover, .toggle-edit:hover {
   background-color: #1876f1;
   transition: 0.1s;
 }
 
-.primaryButton:active {
+.primary-button:active, .toggle-edit:active {
   background-color: #1876f1;
 }
 
-.secondaryButton, .likeBlogButton, .removeBlogButton {
+.secondary-button, .remove-button {
   background-color: transparent;
   color: #0060df;
   padding: 3px 10px;
 }
 
-.secondaryButton:hover, .likeBlogButton:hover, .removeBlogButton:hover {
+.secondary-button:hover, .remove-button:hover {
   transition: 0.1s;
   background-color: #0060df;
   color: white;
 }
 
-.secondaryButton:active, .likeBlogButton:active, .removeBlogButton:active {
+.secondary-button:active, .remove-button:active {
   background-color: #1876f1;
 }
 
-.secondaryButton i, .likeBlogButton i, .removeBlogButton i {
+.secondary-button i, .remove-button i {
   margin-right: 5px;
 }
 
-.removeBlogButton {
-  border: solid 1px #c40909;
-  color: #c40909;
+.remove-button {
+  background-color: #aa0808;
+  border: solid 1px #aa0808;
+  color: white;
+  transition: .2s;
 }
 
-.removeBlogButton:hover {
+.remove-button:hover {
+  transition: .2s;
   background-color: #c40909;
+}
+
+.toggle-edit {
+  padding: 0px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  bottom: 0px;
+  right: -10px;
+}
+
+.toggle-edit i {
+  font-size: 10px;
+  pointer-events: none;
 }
 
 .dropdown {
@@ -147,7 +168,7 @@ form .full {
   width: 100%;
 }
 
-form button, form .secondaryButton, form .likeBlogButton, form .removeBlogButton {
+form button, form .secondary-button, form .remove-button {
   margin-top: 5px;
   width: 100%;
 }
@@ -167,7 +188,17 @@ form button, form .secondaryButton, form .likeBlogButton, form .removeBlogButton
   font-size: 12px;
 }
 
+.edit-field-wrapper {
+  position: relative;
+}
+
+.disabled {
+  background-color: #dbdbdb;
+}
+
 .baseNotification, .success, .error {
+  position: fixed;
+  top: 0px;
   padding: 2px 0px;
   height: 20px;
 }
