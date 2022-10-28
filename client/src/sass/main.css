@@ -201,7 +201,6 @@ form button, form .secondary-button, form .remove-button {
 }
 
 .baseNotification, .success, .error {
-  position: fixed;
   top: 0px;
   padding: 2px 0px;
   height: 20px;
@@ -517,6 +516,8 @@ nav ul .dropdown.dropdownMenu ul li:hover {
 
 .single_page-person_image {
   height: 250px;
+  max-width: 250px;
+  object-fit: cover;
 }
 
 .single_person-header {

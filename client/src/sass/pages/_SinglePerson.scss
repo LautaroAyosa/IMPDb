@@ -1,5 +1,7 @@
 .single_page-person_image {
     height: 250px;
+    max-width: 250px;
+    object-fit: cover;
 }
 
 .single_person-header {
