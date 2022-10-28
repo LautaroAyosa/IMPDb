@@ -15,6 +15,8 @@ import DashboardLayout from './components/DashboardLayout/DashboardLayout'
 import { initPersons } from './redux/reducers/personsReducer';
 import NewMovieForm from './components/Forms/MovieForms/NewMovieForm'
 import NewPersonForm from './components/Forms/PersonForms/NewPersonForm';
+import EditMovieForm from './components/Forms/MovieForms/EditMovieForm';
+import EditPersonForm from './components/Forms/PersonForms/EditPersonForm';
 
 
 const App = () => {
@@ -41,7 +43,9 @@ const App = () => {
 
             <Route path='/dashboard/' element={<DashboardLayout/>}>
               <Route path='new-movie' element={<NewMovieForm />} />
+              <Route path='edit-movie/:id' element={<EditMovieForm />} />
               <Route path='new-person' element={<NewPersonForm />} />
+              <Route path='edit-person/:id' element={<EditPersonForm />} />
             </Route>
 
             <Route path='*' element={<NotFound />}/>

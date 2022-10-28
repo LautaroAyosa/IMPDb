@@ -23,7 +23,7 @@ h6 {
   font-size: 18px;
 }
 
-button, .secondaryButton, .likeBlogButton, .removeBlogButton {
+button, .secondary-button, .remove-button {
   cursor: pointer;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
   border: solid 1px #0060df;
@@ -39,49 +39,70 @@ button, .secondaryButton, .likeBlogButton, .removeBlogButton {
   font-size: 16px;
 }
 
-.primaryButton {
+.primary-button, .toggle-edit {
   background-color: #0060df;
   color: white;
   padding: 8px 30px;
   font-weight: 500;
 }
 
-.primaryButton:hover {
+.primary-button:hover, .toggle-edit:hover {
   background-color: #1876f1;
   transition: 0.1s;
 }
 
-.primaryButton:active {
+.primary-button:active, .toggle-edit:active {
   background-color: #1876f1;
 }
 
-.secondaryButton, .likeBlogButton, .removeBlogButton {
+.secondary-button, .remove-button {
   background-color: transparent;
   color: #0060df;
   padding: 3px 10px;
 }
 
-.secondaryButton:hover, .likeBlogButton:hover, .removeBlogButton:hover {
+.secondary-button:hover, .remove-button:hover {
   transition: 0.1s;
   background-color: #0060df;
   color: white;
 }
 
-.secondaryButton:active, .likeBlogButton:active, .removeBlogButton:active {
+.secondary-button:active, .remove-button:active {
   background-color: #1876f1;
 }
 
-.secondaryButton i, .likeBlogButton i, .removeBlogButton i {
+.secondary-button i, .remove-button i {
   margin-right: 5px;
 }
 
-.removeBlogButton {
-  border: solid 1px #c40909;
-  color: #c40909;
+.remove-button {
+  background-color: #aa0808;
+  border: solid 1px #aa0808;
+  color: white;
+  transition: .2s;
 }
 
-.removeBlogButton:hover {
+.remove-button:hover {
+  transition: .2s;
   background-color: #c40909;
+}
+
+.toggle-edit {
+  padding: 0px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  bottom: 0px;
+  right: -10px;
+}
+
+.toggle-edit i {
+  font-size: 10px;
+  pointer-events: none;
 }
 
 .dropdown {
@@ -143,18 +164,22 @@ form .col15 {
   width: 15%;
 }
 
+form .col85 {
+  width: 83%;
+}
+
 form .full {
   width: 100%;
 }
 
-form button, form .secondaryButton, form .likeBlogButton, form .removeBlogButton {
+form button, form .secondary-button, form .remove-button {
   margin-top: 5px;
   width: 100%;
 }
 
 .input, form input, form textarea, form select {
   display: flex;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   padding: 10px 16px;
   border: none;
   border-radius: 4px;
@@ -167,7 +192,16 @@ form button, form .secondaryButton, form .likeBlogButton, form .removeBlogButton
   font-size: 12px;
 }
 
+.edit-field-wrapper {
+  position: relative;
+}
+
+.disabled {
+  background-color: #dbdbdb;
+}
+
 .baseNotification, .success, .error {
+  top: 0px;
   padding: 2px 0px;
   height: 20px;
 }
@@ -283,38 +317,47 @@ a:active {
   width: 1240px;
 }
 
-.list_container .single_card {
+.list_container .card {
   display: flex;
+  flex-direction: column;
   align-items: center;
   background-color: white;
   width: 290px;
-  height: 180px;
+  height: 280px;
   margin: 5px 0px;
   border-radius: 20px;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   margin: 10px;
 }
 
-.list_container .single_card p {
+.list_container .card p {
   margin: 0px;
 }
 
-.list_container .single_card .single_card-content {
+.list_container .card img {
+  width: 100%;
+  height: 140px;
+  border-radius: 20px 20px 0px 0px;
+  object-fit: cover;
+}
+
+.list_container .card .card-content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 80%;
+  height: 100%;
   width: 100%;
-  padding: 10px 20px;
+  box-sizing: border-box;
+  padding: 15px 20px;
   color: black;
 }
 
-.list_container .single_card .single_card-content .title {
+.list_container .card .card-content .title {
   line-height: 22px;
   margin: 5px 0px;
 }
 
-.list_container .single_card .single_card-content .subtitle {
+.list_container .card .card-content .subtitle {
   font-style: italic;
   font-size: 12px;
 }
@@ -431,4 +474,58 @@ nav ul .dropdown.dropdownMenu ul li:hover {
   padding: 100px 50px;
   border-radius: 20px;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.single_page-banner {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: #f7f8fc !important;
+  background: linear-gradient(270deg, rgba(247, 248, 252, 0) 0%, #f7f8fc 76%, #f7f8fc 100%) !important;
+}
+
+.single_page-banner .single_page-banner-image {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  position: absolute;
+  z-index: -1;
+}
+
+.single_page-banner .single_page-banner-image img {
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  object-fit: cover;
+}
+
+.single_page-banner .single_page-banner-content {
+  padding: 50px 0px;
+}
+
+.single-people {
+  display: flex;
+  justify-content: space-between;
+}
+
+.single-people div {
+  max-width: 33%;
+}
+
+.single_page-person_image {
+  height: 250px;
+  max-width: 250px;
+  object-fit: cover;
+}
+
+.single_person-header {
+  display: flex;
+  align-items: flex-end;
+  padding: 20px 0px;
+}
+
+.single_person-header img {
+  margin-right: 50px;
 }

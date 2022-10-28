@@ -62,12 +62,13 @@ const getOnePerson = async (req, res) => {
 
 const createPerson = async (req, res) => {
     try {
-        const {name, lastName, age, acted, directed, produced} = req.body
+        const {name, lastName, age, image, acted, directed, produced} = req.body
         
         const newPerson = await Person.create({
             name,
             lastName,
-            age
+            age,
+            image
         })
         await newPerson.addActedIn(acted)
         await newPerson.addDirected(directed)
@@ -119,20 +120,43 @@ const deletePerson = async (req, res) => {
 
 const updatePerson = async (req, res) => {
     try {
-        const { name, lastName, age, acted, produced, directed } = req.body
+        const { name, lastName, age, image, acted, produced, directed } = req.body
         const id = req.params.id
         const personToUpdate = await Person.findOne({where: {id: id}})
     
         if (personToUpdate) {
-            const updatedPerson = await personToUpdate.update({
+            const updated = await personToUpdate.update({
                 name: name,
                 lastName: lastName,
                 age: age,
+                image: image,
             })
     
-            updatedPerson.setActedIn(acted)
-            updatedPerson.setProduced(produced)
-            updatedPerson.setDirected(directed)
+            updated.setActedIn(acted)
+            updated.setProduced(produced)
+            updated.setDirected(directed)
+
+            const updatedPerson = await Person.findOne({
+                where: {id: updated.id},
+                include: [
+                    {
+                        model: Movie,
+                        as: 'ActedIn',
+                        attributes: {exclude: ['createdAt', 'updatedAt', 'Actors_Movies']}
+                    },
+                    {
+                        model: Movie,
+                        as: 'Produced',
+                        attributes: {exclude: ['createdAt', 'updatedAt', 'Actors_Movies']}
+                    },
+                    {
+                        model: Movie,
+                        as: 'Directed',
+                        attributes: {exclude: ['createdAt', 'updatedAt', 'Actors_Movies']}
+                    },
+                ],
+                attributes: {exclude: ['createdAt', 'updatedAt']}
+            })
     
             res.status(200).json(updatedPerson)
         } else {

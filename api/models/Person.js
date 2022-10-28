@@ -17,6 +17,10 @@ const Person = sequelize.define('persons', {
         allowNull: false
     },
     age: DataTypes.INTEGER,
+    image: {
+        type: DataTypes.STRING,
+        defaultValue: "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png"
+    }
 })
 
 Person.belongsToMany(Movie, {
