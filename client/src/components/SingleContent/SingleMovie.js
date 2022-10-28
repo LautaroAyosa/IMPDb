@@ -17,19 +17,33 @@ const SingleMovie = () => {
     }
 
     return (
-        <div>
+        <div className='baseContainer'>
         {movie && 
-            <div>
-                <h1>{movie.title}</h1>
-                <div>
-                    <button onClick={handleDelete} className='remove-button'>Delete movie</button>
-                    <Link to={`/dashboard/edit-movie/${movie.id}`} className='secondary-button'>Edit movie</Link>
+            <div className='single_page-container'>
+                <div className='single_page-banner'>
+                    <div className='single_page-banner-image'>
+                        <img src={movie.banner} alt="movie banner" />
+                    </div>
+                    <div className='single_page-banner-content'>
+                        <h1 className='single_page-title'>{movie.title}</h1>
+                        <div>
+                            <button onClick={handleDelete} className='remove-button'>Delete movie</button>
+                            <Link to={`/dashboard/edit-movie/${movie.id}`} className='secondary-button'>Edit movie</Link>
+                        </div>
+                    </div>
                 </div>
-                <div>
+                {
+                    movie.description &&
+                    <div className='single-description'>
+                        <h2>Description</h2>
+                        <p>{movie.description}</p>
+                    </div>
+                }
+                <div className='single-people'>
                     <div>
                         <h2>Cast</h2>
                         <ul>
-                            {movie.Cast.length !== undefined ? 
+                            {movie.Cast.length !== 0 ? 
                                 movie.Cast.map((actor, i) => {
                                     return <li key={i}><Link to={`/people/${actor.id}`}>{actor.name} {actor.lastName}</Link></li>
                                 })

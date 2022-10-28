@@ -56,11 +56,13 @@ const getOneMovie = async (req, res) => {
 const createMovie = async (req, res) => {
 
     try {
-        const { title, year, cast, producer, director } = req.body
+        const { title, year, image, banner, cast, producer, director } = req.body
         
         const newMovie = await Movie.create({
             title,
-            year
+            year,
+            image,
+            banner
         })
         await newMovie.addCast(cast)
         await newMovie.addProducer(producer)
@@ -111,7 +113,7 @@ const deleteMovie = async (req, res) => {
 
 const updateMovie = async (req, res) => {
     try {
-        const {title, year, cast, producer, director} = req.body
+        const {title, year, image, banner, cast, producer, director} = req.body
         const id = req.params.id
         const movieToUpdate = await Movie.findOne({where: {id}})
 
@@ -119,7 +121,9 @@ const updateMovie = async (req, res) => {
 
             const updateResult = await movieToUpdate.update({
                 title,
-                year
+                year,
+                image,
+                banner
             })
 
             await updateResult.setCast(cast)

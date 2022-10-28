@@ -62,12 +62,13 @@ const getOnePerson = async (req, res) => {
 
 const createPerson = async (req, res) => {
     try {
-        const {name, lastName, age, acted, directed, produced} = req.body
+        const {name, lastName, age, image, acted, directed, produced} = req.body
         
         const newPerson = await Person.create({
             name,
             lastName,
-            age
+            age,
+            image
         })
         await newPerson.addActedIn(acted)
         await newPerson.addDirected(directed)
@@ -119,7 +120,7 @@ const deletePerson = async (req, res) => {
 
 const updatePerson = async (req, res) => {
     try {
-        const { name, lastName, age, acted, produced, directed } = req.body
+        const { name, lastName, age, image, acted, produced, directed } = req.body
         const id = req.params.id
         const personToUpdate = await Person.findOne({where: {id: id}})
     
@@ -128,6 +129,7 @@ const updatePerson = async (req, res) => {
                 name: name,
                 lastName: lastName,
                 age: age,
+                image: image,
             })
     
             updated.setActedIn(acted)

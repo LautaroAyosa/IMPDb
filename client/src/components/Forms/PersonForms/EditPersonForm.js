@@ -14,7 +14,7 @@ const EditPersonForm = () => {
     const navigate = useNavigate()
     const person = useSelector(state => state.persons.find(person => person.id === parseInt(params.id)))
     const movies = useSelector(state => state.movies)
-    const [editPerson, setEditPerson] = useState({ name: person.name, lastName: person.lastName, age: person.age, acted: person.ActedIn.map(actor => actor.id), produced: person.Produced.map(producer => producer.id), directed: person.Directed.map(director => director.id) })
+    const [editPerson, setEditPerson] = useState({ name: person.name, lastName: person.lastName, age: person.age, image: person.image, acted: person.ActedIn.map(actor => actor.id), produced: person.Produced.map(producer => producer.id), directed: person.Directed.map(director => director.id) })
 
   // Handle CreateMovie Submit
   const handleSubmit = async (e) => {
@@ -68,6 +68,12 @@ const EditPersonForm = () => {
               <div className='col15 edit-field-wrapper'>
                 <input className='full disabled' placeholder='Age' onChange={handleInputChange} value={editPerson.age} name='age' disabled />
                 <button className='toggle-edit' onClick={handleDisableToggle} name='age'>
+                  <i className="fa-solid fa-pencil"></i>
+                </button>
+              </div>
+              <div className='full edit-field-wrapper'>
+                <input className='full disabled' placeholder='Image URL' onChange={handleInputChange} value={editPerson.image} name='image' disabled />
+                <button className='toggle-edit' onClick={handleDisableToggle} name='image'>
                   <i className="fa-solid fa-pencil"></i>
                 </button>
               </div>

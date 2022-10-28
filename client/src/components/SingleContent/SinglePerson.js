@@ -17,16 +17,20 @@ const SingleMovie = () => {
     }
 
     return (
-        <div>
+        <div className='baseContainer'>
             {person &&
             <div>
-    
-                <h1>{person.name} {person.lastName}</h1>
-                <div>
-                    <button className='remove-button' onClick={handleDelete}>Delete person</button>
-                    <Link to={`/dashboard/edit-person/${person.id}`} className='secondary-button'>Edit person</Link>
+                <div className='single_person-header'>
+                    <img src={person.image} alt={`${person.name} ${person.lastName}`} className='single_page-person_image' />
+                    <div className='single_page-banner-content'>
+                        <h1>{person.name} {person.lastName}</h1>
+                        <div>
+                            <button className='remove-button' onClick={handleDelete}>Delete person</button>
+                            <Link to={`/dashboard/edit-person/${person.id}`} className='secondary-button'>Edit person</Link>
+                        </div>
+                    </div>
                 </div>
-                <div>
+                <div className='single-people'>
                     <div>
                         <h2>Acted in</h2>
                         <ul>

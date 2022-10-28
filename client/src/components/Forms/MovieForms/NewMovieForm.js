@@ -14,7 +14,7 @@ const NewMovieForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
       dispatch(createMovie(newMovie))
-      setNewMovie({ title: '', year: '', cast: [], producer: [], director: [] })
+      setNewMovie({ title: '', year: '', image: '', cast: [], producer: [], director: [] })
   }
 
   // Hanlde input change
@@ -40,8 +40,10 @@ const NewMovieForm = () => {
     <div>
       <h2>Add a New Movie</h2>
       <form>
-        <input className='' style={{flex: 1, marginRight: '1%'}} placeholder='Title' onChange={handleInputChange} value={newMovie.title} name='title' />
+        <input className='col85' placeholder='Title' onChange={handleInputChange} value={newMovie.title} name='title' />
         <input className='col15' placeholder='Year' onChange={handleInputChange} value={newMovie.year} name='year' />
+        <input className='col1-2' placeholder='Image URL' onChange={handleInputChange} value={newMovie.image} name='image' />
+        <input className='col1-2' placeholder='Banner URL' onChange={handleInputChange} value={newMovie.banner} name='banner' />
         <Select
           data={myData}
           selectMultiple={true}
@@ -87,7 +89,7 @@ const NewMovieForm = () => {
               placeholder: 'Please select...'
           }}
         />
-        <button className='primaryButton' onClick={handleSubmit}>Create New Movie</button>
+        <button className='primary-button' onClick={handleSubmit}>Create New Movie</button>
       </form>
     </div>
   )

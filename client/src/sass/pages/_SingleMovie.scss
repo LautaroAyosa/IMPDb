@@ -1,0 +1,40 @@
+.single_page-container {
+    
+}
+
+.single_page-banner {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: $backgroundColor !important;
+    background: linear-gradient(270deg, rgba(247,248,252,0) 0%, $backgroundColor 76%, $backgroundColor 100%) !important;
+    .single_page-banner-image {
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        position: absolute;
+        z-index: -1;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            object-fit: cover;
+        }
+    }
+    .single_page-banner-content {
+        padding: 50px 0px;
+    }
+    .single_page-title {
+    }
+}
+
+.single-people {
+    display: flex;
+    justify-content: space-between;
+    div {
+        max-width: 33%;
+    }
+}
