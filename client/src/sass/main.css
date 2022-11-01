@@ -392,6 +392,25 @@ a:active {
   width: 65%;
 }
 
+.banner-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+
+.col-2 {
+  display: flex;
+}
+
+.col-2 h3 {
+  margin: 10px 0px;
+}
+
+.col-2 h4, .col-2 ul {
+  margin: 5px 0px;
+}
+
 header {
   max-height: 20px;
   display: flex;

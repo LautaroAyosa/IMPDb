@@ -25,3 +25,20 @@
         width: 65%;
     }
 }
+
+.banner-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+}
+
+.col-2 {
+    display: flex;
+    h3 {
+        margin: 10px 0px;
+    }
+    h4, ul {
+        margin: 5px 0px;
+    }
+}
