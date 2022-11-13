@@ -8,6 +8,7 @@ const server = http.createServer(app)
 
 require('./models/Person')
 require('./models/Movie')
+require('./models/User')
 
 // Verify connection to the DB and listen app
 const main = async () => {
