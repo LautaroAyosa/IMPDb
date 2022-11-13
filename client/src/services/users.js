@@ -11,13 +11,13 @@ const getOne = async (id) => {
   return response.data
 }
 
-const create = async newMovie => {
-  const response = await axios.post(baseUrl, newMovie)
+const create = async newUser => {
+  const response = await axios.post(baseUrl, newUser)
   return response.data
 }
 
-const update = async (id, modifiedMovie) => {
-  const response = await axios.put(`${baseUrl}/${id}`, modifiedMovie)
+const update = async (id, modifiedUser) => {
+  const response = await axios.put(`${baseUrl}/${id}`, modifiedUser)
   return response.data
 }
 

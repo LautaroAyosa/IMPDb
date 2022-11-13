@@ -277,6 +277,8 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
@@ -414,7 +416,7 @@ a:active {
 .loginContainer {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
@@ -427,10 +429,11 @@ a:active {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0px 100px;
+  padding: 0px 80px;
   margin-left: 50px;
   width: 400px;
-  height: 90%;
+  height: 500px;
+  border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.7);
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
 }
@@ -451,6 +454,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   background-color: white;
+  min-height: 50px;
   height: 50px;
   font-size: 14px;
   z-index: 100;

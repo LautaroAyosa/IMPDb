@@ -19,12 +19,13 @@ const getOneUser = async (req, res) => {
 
 const createUser = async (req, res) => {
   try {
-    const { email, password, name } = req.body
+    const { username, email, password, name } = req.body
     
     const saltRounds = 10
     const hashPassword = await bcrypt.hash(password, saltRounds)
 
     const newUser = await User.create({
+      username,
       email,
       hashPassword,
       name

@@ -1,5 +1,5 @@
 import userService from '../../../../services/users'
-// import loginService from '../../../services/login'
+import loginService from '../../../../services/login'
 import {createNotification} from '../../../../redux/reducers/notificationReducer'
 import { useDispatch } from 'react-redux'
 
@@ -13,12 +13,13 @@ const SignInButton = (props) => {
                 email: props.user.email,
                 username: props.user.username,
                 password: props.user.password,
+                name: props.user.name,
             })
-            // const user = await loginService.login({
-            //     username: props.user.username,
-            //     password: props.user.password
-            // })
-            // window.localStorage.setItem('loggedUser', JSON.stringify(user))
+            const user = await loginService.login({
+                email: props.user.email,
+                password: props.user.password
+            })
+            window.localStorage.setItem('loggedUser', JSON.stringify(user))
             window.location.reload()
             dispatch(createNotification(`Successfuly created a new user`, 'success'))
             props.setUser({email: '', username: '', name: '', lastName: '', password: ''})
@@ -31,7 +32,7 @@ const SignInButton = (props) => {
     return (
         <button
             type="submit"
-            className='primaryButton'
+            className='primary-button'
             onClick={handleSubmit}>
             Submit
         </button>

@@ -23,7 +23,7 @@ const LoginButton = (props) => {
     return (
         <button 
             type="submit"
-            className='primaryButton'
+            className='primary-button'
             onClick={handleSubmit}>
             Submit
         </button>
