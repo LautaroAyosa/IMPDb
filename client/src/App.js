@@ -18,6 +18,8 @@ import NewPersonForm from './components/Forms/PersonForms/NewPersonForm';
 import EditMovieForm from './components/Forms/MovieForms/EditMovieForm';
 import EditPersonForm from './components/Forms/PersonForms/EditPersonForm';
 import Home from './components/Home/Home';
+import LogIn from './components/Login/LogIn';
+import SignIn from './components/SignIn/SignIn';
 
 
 const App = () => {
@@ -37,6 +39,9 @@ const App = () => {
       <div className='mainContainer'>
 
           <Routes>
+            <Route exact path='/login' element={<LogIn />}/>
+            <Route exact path='/signin' element={<SignIn />}/>
+
             <Route path='/' element={<Home />} />
 
             <Route path='/movies' element={<List show='movies' />} /> 
