@@ -28,5 +28,13 @@ const User = sequelize.define('users', {
     },
 })
 
+Movie.belongsTo(User, {foreignKey: 'userId'})
+User.hasMany(Movie, {as: 'movies', foreignKey: 'userId'})
 
-module.exports = User
+User.hasMany(Person, {foreignKey: 'userId'})
+Person.belongsTo(User, {as: 'persons', foreignKey: 'userId'})
+
+
+module.exports = { 
+    User
+}

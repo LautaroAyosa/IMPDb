@@ -1,6 +1,5 @@
 const { DataTypes } = require('sequelize')
 const { sequelize } = require('./index')
-const { Person } = require('./Person')
 
 const Movie = sequelize.define('movies', {
     id: {
