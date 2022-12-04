@@ -1,4 +1,4 @@
-# Welcome to IMPDb (Internet Movie-People Database)
+# Welcome to The OMDb (The Open Movie Database)
 This is a Full Stack project created mainly with React, SQL, Sequelize, Express, Axios, SASS and Redux.
 It's a simple website application to show that I can work with an SQL Database.
 
