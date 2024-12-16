@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateMovie } from '../../../redux/reducers/moviesReducer'
-import '@mobiscroll/react/dist/css/mobiscroll.min.css';
-import { Select, setOptions, localeEs } from '@mobiscroll/react';
 import { useNavigate, useParams } from 'react-router';
 import $ from "jquery";
 
@@ -34,12 +32,6 @@ const EditMovieForm = () => {
     e.preventDefault()
     $(`input[name="${e.target.name}"]`).prop('disabled', (i,v) => !v).toggleClass('disabled')
   }
-  
-  setOptions({
-    locale: localeEs,
-    theme: 'ios',
-    themeVariant: 'light'
-  });
 
   const myData = persons.map(person => {
     return {
@@ -73,7 +65,7 @@ const EditMovieForm = () => {
                     <input type='string' className='full disabled' placeholder='Banner URL' onChange={handleInputChange} value={newMovie.banner} name='banner' disabled={true} />
                     <button className='toggle-edit' onClick={handleDisableToggle} name='banner' ><i className="fa-solid fa-pencil"></i></button>
                   </div>
-                  <Select
+                  {/* <Select
                   data={myData}
                   defaultSelection={newMovie.cast}
                   selectMultiple={true}
@@ -120,7 +112,7 @@ const EditMovieForm = () => {
                       labelStyle: 'stacked',
                       placeholder: 'Please select...'
                   }}
-                  />
+                  /> */}
                   <button className='primary-button' onClick={handleSubmit}>Submit</button>
                 </form>
             </div>

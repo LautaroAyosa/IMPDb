@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { createMovie } from '../../../redux/reducers/moviesReducer'
-import '@mobiscroll/react/dist/css/mobiscroll.min.css';
-import { Select, setOptions, localeEs } from '@mobiscroll/react';
 
 
 const NewMovieForm = () => {
@@ -22,12 +20,6 @@ const NewMovieForm = () => {
     const { name, value } = event.target
     setNewMovie({ ...newMovie, [name]: value })
   }
-  
-  setOptions({
-    locale: localeEs,
-    theme: 'ios',
-    themeVariant: 'light'
-  });
 
   const myData = persons.map(person => {
     return {
@@ -44,7 +36,7 @@ const NewMovieForm = () => {
         <input className='col15' placeholder='Year' onChange={handleInputChange} value={newMovie.year} name='year' />
         <input className='col1-2' placeholder='Image URL' onChange={handleInputChange} value={newMovie.image} name='image' />
         <input className='col1-2' placeholder='Banner URL' onChange={handleInputChange} value={newMovie.banner} name='banner' />
-        <Select
+        {/* <Select
           data={myData}
           selectMultiple={true}
           label="Cast"
@@ -88,7 +80,7 @@ const NewMovieForm = () => {
               labelStyle: 'stacked',
               placeholder: 'Please select...'
           }}
-        />
+        /> */}
         <button className='primary-button' onClick={handleSubmit}>Create New Movie</button>
       </form>
     </div>

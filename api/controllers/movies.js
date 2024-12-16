@@ -57,12 +57,18 @@ const createMovie = async (req, res) => {
 
     try {
         const { title, year, image, banner, cast, producer, director } = req.body
+
+        const user = req.user
+        const token = req.token
+        console.log(user)
+        console.log(token)
         
         const newMovie = await Movie.create({
             title,
             year,
             image,
-            banner
+            banner,
+
         })
         await newMovie.addCast(cast)
         await newMovie.addProducer(producer)

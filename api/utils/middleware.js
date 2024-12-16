@@ -34,7 +34,8 @@ const tokenExtractor = (request, response, next) => {
 }
 
 const userExtractor = async (request, response, next) => {
-  const token = request.token
+  const token = request.token || localStorage.getItem(loggedUser.token)
+  console.log(localStorage.getItem(loggedUser.token))
   if (token) {
     const decodedToken = jwt.verify(token, config.SECRET)
     const user = await User.findById(decodedToken.id)

@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import '@mobiscroll/react/dist/css/mobiscroll.min.css';
-import { Select, setOptions, localeEs } from '@mobiscroll/react';
 import { useNavigate, useParams } from 'react-router';
 import $ from "jquery";
 import { updatePerson } from '../../../redux/reducers/personsReducer';
@@ -33,12 +31,7 @@ const EditPersonForm = () => {
     e.preventDefault()
     $(`input[name="${e.target.name}"]`).prop('disabled', (i,v) => !v).toggleClass('disabled')
   }
-  
-  setOptions({
-    locale: localeEs,
-    theme: 'ios',
-    themeVariant: 'light'
-  });
+
 
   const myData = movies.map(movie => {
     return {
@@ -77,7 +70,7 @@ const EditPersonForm = () => {
                   <i className="fa-solid fa-pencil"></i>
                 </button>
               </div>
-              <Select
+              {/* <Select
                 data={myData}
                 defaultSelection={editPerson.acted}
                 selectMultiple={true}
@@ -124,7 +117,7 @@ const EditPersonForm = () => {
                     labelStyle: 'stacked',
                     placeholder: 'Please select...'
                 }}
-              />
+              /> */}
               <button className='primary-button' onClick={handleSubmit}>Submit</button>
             </form>
           </div>

@@ -11,7 +11,9 @@ const Filter = (props) => {
     }
 
     return (
-        <div className='filterContainer'><input className='filter' onChange={handleFilterChange} value={filter} name='filter' placeholder={props.placeholder ? props.placeholder : 'Search blogs and more' } /></div>
+        <div className='filterContainer'>
+            <input className='filter' onChange={handleFilterChange} value={filter} name='filter' placeholder={props.placeholder ? props.placeholder : 'Search blogs and more' } />
+        </div>
     )
 }
 

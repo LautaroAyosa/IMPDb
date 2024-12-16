@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import '@mobiscroll/react/dist/css/mobiscroll.min.css';
-import { Select, setOptions, localeEs } from '@mobiscroll/react';
+// import { Select, setOptions, localeEs } from '@mobiscroll/react';
 import { createPerson } from '../../../redux/reducers/personsReducer';
 
 
@@ -23,11 +22,11 @@ const NewPersonForm = () => {
     setNewPerson({ ...newPerson, [name]: value })
   }
   
-  setOptions({
-    locale: localeEs,
-    theme: 'ios',
-    themeVariant: 'light'
-  });
+  // setOptions({
+  //   locale: localeEs,
+  //   theme: 'ios',
+  //   themeVariant: 'light'
+  // });
 
   const myData = movies.map(movie => {
     return {
@@ -44,7 +43,7 @@ const NewPersonForm = () => {
         <input className='col1-3' placeholder='Last Name' onChange={handleInputChange} value={newPerson.lastName} name='lastName' />
         <input className='col15' placeholder='Age' onChange={handleInputChange} value={newPerson.age} name='age' />
         <input className='full' placeholder='Image URL' onChange={handleInputChange} value={newPerson.image} name='image' />
-        <Select
+        {/* <Select
           data={myData}
           selectMultiple={true}
           label="Acted in"
@@ -89,7 +88,7 @@ const NewPersonForm = () => {
               labelStyle: 'stacked',
               placeholder: 'Please select...'
           }}
-        />
+        /> */}
         <button className='primary-button' onClick={handleSubmit}>Create New Person</button>
       </form>
     </div>
