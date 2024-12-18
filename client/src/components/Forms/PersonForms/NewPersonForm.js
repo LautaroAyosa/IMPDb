@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import '@mobiscroll/react/dist/css/mobiscroll.min.css';
-import { Select, setOptions, localeEs } from '@mobiscroll/react';
+// import { Select, setOptions, localeEs } from '@mobiscroll/react';
 import { createPerson } from '../../../redux/reducers/personsReducer';
 
 
 const NewPersonForm = () => {
-  const [newPerson, setNewPerson] = useState({ name: '', lastName: '', age: '', acted: [], produced: [], directed: [] })
+  const [newPerson, setNewPerson] = useState({ name: '', lastName: '', age: '', image: '', acted: [], produced: [], directed: [] })
   const dispatch = useDispatch()
   const movies = useSelector(state => state.movies)
   
@@ -14,7 +13,7 @@ const NewPersonForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
       dispatch(createPerson(newPerson))
-      setNewPerson({ name: '', lastName: '', age: '', acted: [], produced: [], directed: [] })
+      setNewPerson({ name: '', lastName: '', age: '', image: '', acted: [], produced: [], directed: [] })
   }
 
   // Hanlde input change
@@ -23,11 +22,11 @@ const NewPersonForm = () => {
     setNewPerson({ ...newPerson, [name]: value })
   }
   
-  setOptions({
-    locale: localeEs,
-    theme: 'ios',
-    themeVariant: 'light'
-  });
+  // setOptions({
+  //   locale: localeEs,
+  //   theme: 'ios',
+  //   themeVariant: 'light'
+  // });
 
   const myData = movies.map(movie => {
     return {
@@ -43,7 +42,8 @@ const NewPersonForm = () => {
         <input className='col1-2' placeholder='Name' onChange={handleInputChange} value={newPerson.name} name='name' />
         <input className='col1-3' placeholder='Last Name' onChange={handleInputChange} value={newPerson.lastName} name='lastName' />
         <input className='col15' placeholder='Age' onChange={handleInputChange} value={newPerson.age} name='age' />
-        <Select
+        <input className='full' placeholder='Image URL' onChange={handleInputChange} value={newPerson.image} name='image' />
+        {/* <Select
           data={myData}
           selectMultiple={true}
           label="Acted in"
@@ -88,8 +88,8 @@ const NewPersonForm = () => {
               labelStyle: 'stacked',
               placeholder: 'Please select...'
           }}
-        />
-        <button className='primaryButton' onClick={handleSubmit}>Create New Person</button>
+        /> */}
+        <button className='primary-button' onClick={handleSubmit}>Create New Person</button>
       </form>
     </div>
   )

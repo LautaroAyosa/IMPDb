@@ -14,7 +14,7 @@ button {
     font-size: 16px;
 }
 
-.primaryButton {
+.primary-button {
     background-color: #0060df;
     color: white;
     padding: 8px 30px;
@@ -28,7 +28,7 @@ button {
     }
 }
 
-.secondaryButton {
+.secondary-button {
     @extend button;
     background-color: transparent;
     color: #0060df;
@@ -46,18 +46,33 @@ button {
     }
 }
 
-.likeBlogButton {
-    @extend .secondaryButton;
-    
+
+.remove-button {
+    @extend .secondary-button;
+    background-color: rgb(170, 8, 8);
+    border: solid 1px rgb(170, 8, 8);
+    color: white;
+    transition: .2s;
+    &:hover {
+        transition: .2s;
+        background-color: rgb(196, 9, 9);
+    }
 }
 
-.removeBlogButton {
-    @extend .secondaryButton;
-
-    border: solid 1px rgb(196, 9, 9);
-    color: rgb(196, 9, 9);
-    &:hover {
-        
-        background-color: rgb(196, 9, 9);
+.toggle-edit {
+    @extend .primary-button;
+    padding: 0px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    bottom: 0px;
+    right: -10px;
+    i {
+        font-size: 10px;
+        pointer-events:none;
     }
 }

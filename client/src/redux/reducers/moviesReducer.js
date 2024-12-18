@@ -51,12 +51,12 @@ export const createMovie = (movie) => {
 export const updateMovie = (id, movieToUpdate) => {
     return async (dispatch) => {
         try {
-            const updatedmovie = await movieService.update(id, movieToUpdate)
+            const updatedMovie = await movieService.update(id, movieToUpdate)
             dispatch({
                 type: '@movies/update_movie',
-                payload: {id: id, movie: updatedmovie}
+                payload: {id: id, movie: updatedMovie}
             })
-            dispatch(createNotification(`"${updatedmovie.title}" updated successfuly`, 'success'))
+            dispatch(createNotification(`"${updatedMovie.title}" updated successfuly`, 'success'))
         } catch (error) {
             dispatch(createNotification(error.response.data.error, 'error'))
         }

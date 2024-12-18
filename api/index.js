@@ -8,6 +8,12 @@ const server = http.createServer(app)
 
 require('./models/Person')
 require('./models/Movie')
+require('./models/User')
+
+console.log('DB HOST:', config.DB_HOST);
+console.log('DB USER:', config.DB_USER);
+console.log('DB NAME:', config.DB_NAME);
+console.log('DB PASSWORD:', config.DB_PASSWORD);
 
 // Verify connection to the DB and listen app
 const main = async () => {

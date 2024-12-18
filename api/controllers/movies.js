@@ -56,11 +56,19 @@ const getOneMovie = async (req, res) => {
 const createMovie = async (req, res) => {
 
     try {
-        const { title, year, cast, producer, director } = req.body
+        const { title, year, image, banner, cast, producer, director } = req.body
+
+        const user = req.user
+        const token = req.token
+        console.log(user)
+        console.log(token)
         
         const newMovie = await Movie.create({
             title,
-            year
+            year,
+            image,
+            banner,
+
         })
         await newMovie.addCast(cast)
         await newMovie.addProducer(producer)
@@ -111,15 +119,47 @@ const deleteMovie = async (req, res) => {
 
 const updateMovie = async (req, res) => {
     try {
-        const {title, year} = req.body
+        const {title, year, image, banner, cast, producer, director} = req.body
         const id = req.params.id
         const movieToUpdate = await Movie.findOne({where: {id}})
+
         if (movieToUpdate) {
-            await movieToUpdate.update({
+
+            const updateResult = await movieToUpdate.update({
                 title,
-                year
+                year,
+                image,
+                banner
             })
-            res.status(200).json(movieToUpdate)
+
+            await updateResult.setCast(cast)
+            await updateResult.setProducers(producer)
+            await updateResult.setDirectors(director)
+
+            const updatedMovie = await Movie.findOne({
+                where: {id: updateResult.id},
+                include: [
+                    {
+                        model: Person, 
+                        as: 'Cast',
+                        attributes: { exclude: ['createdAt', 'updatedAt']}
+                    },
+                    {
+                        model: Person, 
+                        as: 'Directors',
+                        attributes: { exclude: ['createdAt', 'updatedAt']}
+                    },
+                    {
+                        model: Person, 
+                        as: 'Producers',
+                        attributes: { exclude: ['createdAt', 'updatedAt']}
+                    }
+                ],
+                attributes: {exclude: ['createdAt', 'updatedAt']}
+            }) 
+            console.log(updatedMovie)
+            res.status(200).json(updatedMovie)
+
         } else {
             res.status(404).json({error: 'Movie not found'})
         }
