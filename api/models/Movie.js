@@ -1,33 +1,41 @@
 const { DataTypes } = require('sequelize')
-const { sequelize } = require('./index')
 
-const Movie = sequelize.define('movies', {
-    id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
-    },
-    title: { 
-        type: DataTypes.STRING,
-        allowNull: false
-    },
-    year: { 
-        type: DataTypes.INTEGER,
-        allowNull: false
-    },
-    image: {
-        type: DataTypes.STRING,
-        defaultValue: 'https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png'
-    },
-    banner: {
-        type: DataTypes.STRING,
-        defaultValue: 'https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png'
-    },
-    description: {
-        type: DataTypes.STRING,
-    }
-})
-
-module.exports = {
-    Movie
+module.exports = (sequelize) => {
+    return sequelize.define('movies', {
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true,
+        },
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        synopsis: {
+            type: DataTypes.TEXT,
+            allowNull: true,
+        },
+        category: {
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
+        releaseDate: {
+            type: DataTypes.DATE,
+            allowNull: false,
+        },
+        tags: {
+            type: DataTypes.ARRAY(DataTypes.STRING), // Requires PostgreSQL
+            allowNull: true,
+        },
+        duration: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+            validate: {
+                isInt: true,
+                min: 1, // Minimum duration is 1 minute
+            },
+        },
+        // Reviews
+        // PG Rating
+    });
 }

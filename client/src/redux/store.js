@@ -1,15 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-
-import moviesReducer from "./reducers/moviesReducer";
-import personsReducer from "./reducers/personsReducer";
-import notificationReducer from "./reducers/notificationReducer";
+import rootReducer from "./reducers/indexReducers";
 
 const store = configureStore({
-  reducer: {
-    movies: moviesReducer,
-    persons: personsReducer,
-    notification: notificationReducer,
-  }
+  reducer: rootReducer
 });
 
 export default store;

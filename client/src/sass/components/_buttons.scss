@@ -4,14 +4,23 @@ button {
     border: solid 1px #0060df;
     transition: 0.1s;
     border-radius: 3px;
-    margin: 0px 5px 0px 0px;
+    padding: 10px;
     font-size: 14px;
+    background-color: $bg-light;
+
 }
 
 .roundButton {
     border-radius: 50%;
     padding: 6px 8px;
     font-size: 16px;
+}
+
+#read-more-btn {
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 5px 15px;
 }
 
 .primary-button {
@@ -30,13 +39,15 @@ button {
 
 .secondary-button {
     @extend button;
-    background-color: transparent;
+    background-color: rgb(255, 255, 255);
     color: #0060df;
     padding: 3px 10px;
+    font-weight: 600;
+    border-color: white;
     &:hover {
         transition: 0.1s;
         background-color: #0060df;
-        color: white;
+        color: rgb(255, 255, 255);
     }
     &:active {
         background-color: #1876f1;

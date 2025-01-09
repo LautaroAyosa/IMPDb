@@ -1,46 +1,156 @@
-.list_container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 1240px;
-    .card {
+.list-content-container {
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 1rem;
+    box-sizing: border-box;
+  
+    .list-item {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        background-color: white;
-        width: 290px;
-        height: 280px;
-        margin: 5px 0px;
-        border-radius: 20px;
-        box-shadow: $box-shadow;
-        margin: 10px;
-        p {
-            margin: 0px;
+        gap: 0.75rem;
+        padding: 1rem 0;
+        border-bottom: 1px solid #eee;
+  
+        &:last-child {
+            border-bottom: none;
         }
-        img {
-            width: 100%;
-            height: 140px;
-            border-radius: 20px 20px 0px 0px;
-            object-fit: cover;
-        }
-        .card-content {
+
+        &__header {
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-            width: 100%;
-            box-sizing: border-box;
-            padding: 15px 20px;
-            color: black;
-            .title {
-                line-height: 22px;
-                margin: 5px 0px;
+            column-gap: 15px;
+            &-image {
+                width: 64px;
+                height: 64px;
+                border-radius: 50%;
+                overflow: hidden;
+                img {
+                width: 100%;
+                object-fit: cover;
+                object-position: center center;
+                }
             }
-            .subtitle {
-                font-style: italic;
-                font-size: 12px;
+      
+            &-info {
+                flex: 1;
+                
+                &-main {
+                display: flex;
+                flex-direction: column;
+        
+                    .name {
+                        font-size: 1.2rem;
+                        font-weight: bold;
+                        margin-bottom: 0.25rem;
+                    }
+            
+                    .roles {
+                        font-size: 0.9rem;
+                        color: #555;
+                    }
+                    
+                    .year {
+                        font-size: 0.7rem;
+                        color: #555
+                    }
+    
+                }
+        
+                &-credits {
+                font-size: 0.9rem;
+                color: #007bff;
+                margin: 0.5rem 0;
+                }
+        
+            }
+        }
+
+        &__bio {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: #333;
+            p {
+                margin: 0px;
+            }
+        }
+    
+        &__actions {
+            margin-left: auto;
+            align-self: center;
+            .expand-btn {
+            font-size: 1.2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
             }
         }
     }
-
 }
+
+.list-content__flexWrap {
+    /* CSS */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 100%;
+    margin: 0 auto;
+
+    .list-item {
+        width: calc((100% / 6) - (16px * (6 - 1) / 6));
+        background: #ccc; /* Example background */
+        
+        @media (max-width: 1300px) {
+            /* At 1300px, just shorten the posters (same 6 per row, but narrower) */
+            width: calc((100% / 6) - (16px * (6 - 1) / 6));
+        }
+        @media (max-width: 1000px) {
+            width: calc((100% / 4) - (16px * (4 - 1) / 4));
+        }
+        
+        /* At ~600px: 2 posters per row */
+        @media (max-width: 600px) {
+            width: calc((100% / 2) - (16px * (2 - 1) / 2));
+        }
+    }
+}
+
+
+  
+  
+.list_pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+
+    .paginationButton_prev,
+    .paginationButton_next {
+    padding: 10px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:disabled {
+        background-color: #ddd;
+        color: #666;
+        cursor: not-allowed;
+    }
+
+    &:hover:not(:disabled) {
+        background-color: #0056b3;
+    }
+    }
+
+    .paginationInfo {
+    font-size: 14px;
+    color: #333;
+    }
+}
+  
+  

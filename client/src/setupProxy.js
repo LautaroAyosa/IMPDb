@@ -1,6 +1,6 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
-const target = 'http://backend:3003'; // Prueba directamente esto
+const target = process.env.API || 'http://localhost:3003'; // Prueba directamente esto
 
 module.exports = function(app) {
   app.use(createProxyMiddleware(

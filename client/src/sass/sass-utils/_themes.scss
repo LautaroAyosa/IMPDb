@@ -1,0 +1,16 @@
+// Dark Theme (Default)
+.dark-mode {
+  --bg-color: #121212;     // Or whichever dark color you prefer
+  --text-color: #ffffff;
+  --accent-color: $primary-color; // Reuse from variables if you wish
+}
+  
+// Light Theme
+.light-mode {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --accent-color: $primary-color; // Reuse from variables if you wish
+}
+  
+// Optional: you can define more theme-specific variables if needed
+  

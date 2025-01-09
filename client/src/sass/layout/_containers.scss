@@ -1,16 +1,81 @@
-.mainContainer {
-    width: 100%;
+.container {
+    margin: 0 auto;
+    padding: 0 $default-gap;
+    @include light-theme;
+    &.dark-mode {
+      @include dark-theme;
+    }
+}
+
+#root {
+    overflow-x: hidden;
+}
+
+.main-container {
+    width: $max-width;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-sizing: border-box;
+    // Tablet
+    @media (max-width: $bp-lg) {
+        width: 100%;
+    }
+  
+    // Mobile
+    @media (max-width: 768px) {
+      
+    }
 }
 
-.baseContainer {
-    width: 1120px;
+.full-width-container {
+    width: 100vw; // 100% of the viewport width
+    margin-left: calc(50% - 50vw); // Center the container relative to the viewport
+    margin-right: calc(50% - 50vw); // Maintain the same spacing on both sides
+    .light-mode {
+        @include light-theme
+    }
+    .dark-mode {
+        @include dark-theme
+    }
+}
+
+.base-container {
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
+  
+    // Tablet
+    @media (max-width: $bp-lg) {
+      width: 100%;
+
+    }
+  
+    // Mobile
+    @media (max-width: $bp-md) {
+      width: 95%;
+    }
+}
+
+.list-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0px;
+    .list-controls {
+
+        &-search {
+            width: 100%;
+
+            &:focus {
+                outline: none !important;
+            }
+        }
+    }
 }
 
 .col-2Container {
@@ -62,7 +127,14 @@
         background-color: rgba(255,255,255,0.7);
         box-shadow: 10px 10px 10px rgba(0,0,0,0.2);
     }
-    background-image: url(https://www.xtrafondos.com/descargar.php?id=6286&resolucion=3840x2160);
+    background-image: $backgroundImage;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.flexRowCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }

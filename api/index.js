@@ -2,18 +2,15 @@ const app = require('./app')
 const http = require('http')
 const config = require('./utils/config')
 const logger = require('./utils/logger')
-const { sequelize } = require('./models/index.js')
+const { sequelize } = require('./models')
 
 const server = http.createServer(app)
 
-require('./models/Person')
-require('./models/Movie')
-require('./models/User')
 
-console.log('DB HOST:', config.DB_HOST);
-console.log('DB USER:', config.DB_USER);
-console.log('DB NAME:', config.DB_NAME);
-console.log('DB PASSWORD:', config.DB_PASSWORD);
+// console.log('DB HOST:', config.DB_HOST);
+// console.log('DB USER:', config.DB_USER);
+// console.log('DB NAME:', config.DB_NAME);
+// console.log('DB PASSWORD:', config.DB_PASSWORD);
 
 // Verify connection to the DB and listen app
 const main = async () => {

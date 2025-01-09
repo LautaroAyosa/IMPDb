@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useContext } from "react"
 import { Link, NavLink } from "react-router-dom";
 import loginService from '../../services/login'
 
+// Theme Context
+import { ThemeContext } from "../../contexts/ThemeContexts"
+import ToggleThemeButton from "./ToggleThemeButton/ToggleThemeButton";
+
 const NavBar = () => {
     const [user, setUser] = useState(null)
+    const { theme, toggleTheme } = useContext(ThemeContext);
 
     useEffect(() => {
         const loggedUserJSON = window.localStorage.getItem('loggedUser')
@@ -15,24 +20,17 @@ const NavBar = () => {
 
 
     return (
-        <nav>
+        <nav className={`navbar ${theme}`}>
             <NavLink to='/'><img className="logo" src='/images/New-imdb-logo.png' alt='imdb logo'/></NavLink>
-            <ul>
-                <li><NavLink to='/movies'>Movies</NavLink></li>
-                <li><NavLink to='/people'>People</NavLink></li>
+            <ul className="">
+                <NavLink to='/movies'><li>Movies</li></NavLink>
+                <NavLink to='/people'><li>People</li></NavLink>
                 {user ? 
-                    <li className="dropdown dropdownMenu">
-                        <NavLink to='/dashboard'>Dashboard</NavLink>
-                        <ul>
-                            <li><Link to='/dashboard/new-movie'>New Movie</Link></li>
-                            <li><Link to='/dashboard/new-person'>New Person</Link></li>
-                            <li><p className="clickable" onClick={async() => await loginService.logout()}>Log out</p></li>
-                        </ul>
-                    </li>
+                    <NavLink to='/dashboard'><li className="">Dashboard</li></NavLink>
                     : 
                     <div style={{display: 'flex'}}>
-                        <li><NavLink to='/login'>Login</NavLink></li>
-                        <li><NavLink to='/signin'>Join The OMDb</NavLink></li>
+                       <NavLink to='/login'><li>Login</li></NavLink>
+                       <NavLink to='/signin'><li>Join The OMDb</li></NavLink>
                     </div>
                 }
                 

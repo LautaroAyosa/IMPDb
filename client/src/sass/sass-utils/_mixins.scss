@@ -1,6 +1,46 @@
-$breakpoint-small: 600px;
-$breakpoint-med-small: 960px;
-$breakpoint-med: 1175px;
+
+// ----------------------------------------------
+// Theming Mixins
+// ----------------------------------------------
+@mixin light-theme {
+  background-color: $bg-light;
+  color: $fg-light;
+}
+@mixin dark-theme {
+  background-color: $bg-dark;
+  color: $fg-dark;
+}
+
+// ----------------------------------------------
+// Mixin: Media Queries
+// ----------------------------------------------
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == sm {
+    @media (max-width: #{$bp-sm}) { @content; }
+  } @else if $breakpoint == md {
+    @media (max-width: #{$bp-md}) { @content; }
+  } @else if $breakpoint == lg {
+    @media (max-width: #{$bp-lg}) { @content; }
+  }
+}
+
+@mixin row($gap: $default-gap) {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -($gap / 2);
+  margin-right: -($gap / 2);
+}
+
+@mixin col($span: 6, $total: 12, $gap: $default-gap) {
+  width: percentage($span / $total);
+  padding-left: ($gap / 2);
+  padding-right: ($gap / 2);
+
+  // Example: On smaller screens, span full width
+  @include respond-to(sm) {
+    width: 100%;
+  }
+}
 
 @mixin screen($size, $type: max, $pixels: $breakpoint-small) {
   @if $size == 'small' {

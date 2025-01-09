@@ -6,8 +6,14 @@ const getAll = async () => {
   return response.data
 }
 
-const getOne = async (id) => {
+const getOneById = async (id) => {
   const response = await axios.get(`${baseUrl}/${id}`)
+  return response.data
+}
+
+const getOneByUserName = async (username) => {
+  const response = await axios.get(`${baseUrl}/username/${username}`)
+  console.log(response.data)
   return response.data
 }
 
@@ -27,4 +33,4 @@ const remove = async (id) => {
 }
 
 // eslint-disable-next-line
-export default { getAll, getOne, create, update, remove }
+export default { getAll, getOneById, getOneByUserName, create, update, remove }

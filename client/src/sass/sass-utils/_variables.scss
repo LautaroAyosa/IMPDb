@@ -1,10 +1,28 @@
-$primaryColor: #986ac7;
-$secondaryColor: #ede5f5;
+// src/styles/variables.scss
+$primary-color: #4285f4;
+$secondary-color: #ea4335;
 $backgroundColor: #f7f8fc;
 $white: #ffffff;
 
 $hoverGreyBackground: rgba(244,244,244,1);
 
-$backgroundImage: url(https://bestwallpapers.in/wp-content/uploads/2021/07/abstract-fluid-art-colorful-4k-wallpaper-3840x2160.jpg);
+$backgroundImage: url(/public/images/background.jpg);
 
 $box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+
+
+// ----------------------------------------------
+// Variables
+// ----------------------------------------------
+$bg-light: #ffffff;
+$fg-light: #333;
+$bg-dark: #222;
+$fg-dark: #fafafa;
+
+$max-width: 1300px;
+$default-gap: 1rem;
+
+// Breakpoints
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1320px;

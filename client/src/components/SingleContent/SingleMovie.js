@@ -6,7 +6,7 @@ const SingleMovie = () => {
     const params = useParams()
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const movie = useSelector((state) => state.movies.find(movie => movie.id === parseInt(params.id)))
+    const movie = useSelector((state) => state.movies.data.find(movie => movie.id === parseInt(params.id)))
     
     const handleDelete = async (e) => {
         e.preventDefault()

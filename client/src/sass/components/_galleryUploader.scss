@@ -1,0 +1,77 @@
+.gallery-uploader {
+  width: 100%;
+  &__title {
+    margin: 10px 0px;
+  }
+
+  &__description {
+    margin: 5px 0px;
+  }
+}
+
+.dropzone {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dropzone.drag-active {
+    background-color: #e0f7fa; /* Light blue background when dragging */
+    border-color: #26c6da; /* Highlighted border */
+  }
+  
+  .gallery-list {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+  
+  .gallery-item {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: white;
+  }
+  
+  .gallery-item img,
+  .gallery-item .video-placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .gallery-item button, .delete-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 12px;
+    border-radius: 3px;
+  }
+  
+  .profile-highlight {
+    border: 2px solid green;
+    box-shadow: 0 0 10px green;
+  }
+  
+  .profile-label {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    background: green;
+    color: white;
+    font-size: 10px;
+    padding: 2px 5px;
+    border-radius: 3px;
+  }
+  

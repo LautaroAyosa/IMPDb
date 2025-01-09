@@ -2,14 +2,24 @@
 @import "sass-utils/mixins";
 @import "sass-utils/typography";
 @import "sass-utils/variables";
+@import "sass-utils/themes";
+@import "sass-utils/utils";
 
 // Components
 @import "components/buttons";
 @import "components/dropdown";
 @import "components/filter";
 @import "components/forms";
+@import "components/galleryUploader";
+@import "components/loading";
+@import "components/mediaGallery";
+@import "components/movieCard";
+@import "components/multiselect";
 @import "components/notification";
+@import "components/postNavigation";
 @import "components/sidebar";
+@import "components/cards";
+@import "components/footer";
 
 // Core files
 @import "core/root";
@@ -27,3 +37,4 @@
 @import "pages/NotFound";
 @import "pages/SingleMovie";
 @import "pages/SinglePerson";
+@import "pages/Dashboard";

@@ -1,9 +1,8 @@
 const { DataTypes } = require('sequelize')
-const { sequelize } = require('./index')
-const { Person } = require('./Person')
-const { Movie } = require('./Movie')
 
-const User = sequelize.define('users', {
+
+module.exports = (sequelize) => {
+    return sequelize.define('users', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -26,15 +25,5 @@ const User = sequelize.define('users', {
         type: DataTypes.STRING,
         allowNull: false
     },
-})
-
-Movie.belongsTo(User, {foreignKey: 'userId'})
-User.hasMany(Movie, {as: 'movies', foreignKey: 'userId'})
-
-User.hasMany(Person, {foreignKey: 'userId'})
-Person.belongsTo(User, {as: 'persons', foreignKey: 'userId'})
-
-
-module.exports = { 
-    User
+    })
 }

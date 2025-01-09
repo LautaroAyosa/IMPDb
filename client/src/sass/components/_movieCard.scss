@@ -1,0 +1,49 @@
+/* CSS */
+.movie-card {
+    background-color: #202020;
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: sans-serif;
+    color: #fff;
+    &__poster {
+
+        img {
+            width: 100%;
+            aspect-ratio: 2/3.365;
+            display: block;
+            object-fit: cover;
+        }
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 10px;
+        
+        .rating {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .title {
+            font-size: 18px;
+            margin: 5px 0;
+          }
+          
+        .watchlist, .trailer {
+            background: #333;
+            border: none;
+            color: #fff;
+            padding: 6px 10px;
+            margin-right: 5px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+          
+        .watchlist:hover, .trailer:hover {
+            background: #444;
+        }
+          
+    }
+}
+  

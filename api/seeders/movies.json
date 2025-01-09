@@ -1,0 +1,33 @@
+[
+  {
+    "title": "The Shawshank Redemption",
+    "synopsis": "A banker convicted of uxoricide forms a friendship over a quarter century with a hardened convict, while maintaining his innocence and trying to remain hopeful through simple compassion.",
+    "releaseDate": "1994-10-14T03:00:00.000Z",
+    "tags": [
+      "Drama"
+    ],
+    "duration": 142,
+    "MovieGallery": [
+      {
+        "path": "https://m.media-amazon.com/images/M/MV5BMDAyY2FhYjctNDc5OS00MDNlLThiMGUtY2UxYWVkNGY2ZjljXkEyXkFqcGc@._V1_SX300.jpg",
+        "relativePath": "/posters/tt0111161.jpg"
+      }
+    ]
+  },
+  {
+    "title": "The Godfather",
+    "synopsis": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+    "releaseDate": "1972-03-24T03:00:00.000Z",
+    "tags": [
+      "Crime",
+      "Drama"
+    ],
+    "duration": 175,
+    "MovieGallery": [
+      {
+        "path": "https://m.media-amazon.com/images/M/MV5BYTJkNGQyZDgtZDQ0NC00MDM0LWEzZWQtYzUzZDEwMDljZWNjXkEyXkFqcGc@._V1_SX300.jpg",
+        "relativePath": "/posters/tt0068646.jpg"
+      }
+    ]
+  }
+]

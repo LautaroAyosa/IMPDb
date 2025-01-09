@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   backend:
     build:
@@ -13,7 +11,7 @@ services:
       - DB_USER=${POSTGRES_USER}
       - DB_PASSWORD=${POSTGRES_PASSWORD}
       - PORT=3003
-      - SECRET='freebase-pluck-phonebook-washbowl-subpar-claw-daredevil-jarring-marauding-yelp-garnet-onstage'
+      - SECRET=${SECRET}
     env_file:
       - .env
     depends_on:
