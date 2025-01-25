@@ -16,12 +16,29 @@ const SignInForm = () => {
   }
 
   return (
-    <form>
-      <input className='full' placeholder='Email' onChange={handleInputChange} value={user.email} name='email' />
-      <input className='col1-2' placeholder='Username' onChange={handleInputChange} value={user.username} name='username' />
-      <input className='col1-2' placeholder='Full Name' onChange={handleInputChange} value={user.name} name='name' />
-      <input className='full' placeholder='Password' type='password' onChange={handleInputChange} value={user.password} name='password' />
-      <input className='full' placeholder='Confirm Password' type='password' onChange={handleInputChange} value={user.confirmPassword} name='confirmPassword' />
+    <form className='form' id='sign-in-form'>
+      <div className='form-item'>
+        <label>Email Address</label>
+        <input className='full' placeholder='name@domain.com' onChange={handleInputChange} value={user.email} name='email' />
+      </div>
+      <div className='form-item'>
+        <label>Username</label>
+        <input className='' placeholder='Choose a username' onChange={handleInputChange} value={user.username} name='username' />
+      </div>
+      <div className='form-item'>
+        <label>Full Name</label>
+        <input className='' placeholder='John Doe' onChange={handleInputChange} value={user.name} name='name' />
+      </div>
+      <div className='form-wrap form-row'>
+        <div className='form-item'>
+          <label>Password</label>
+          <input className='col1-2' placeholder='Choose a Password' type='password' onChange={handleInputChange} value={user.password} name='password' />
+        </div>
+        <div className='form-item'>
+          <label>Confirm Password</label>
+          <input className='' placeholder='Repeat your Password' type='password' onChange={handleInputChange} value={user.confirmPassword} name='confirmPassword' />
+        </div>
+      </div>
       <SignInButton user={user} setUser={setUser} />
     </form>
   )

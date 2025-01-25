@@ -28,10 +28,10 @@ const NavBar = () => {
                 {user ? 
                     <NavLink to='/dashboard'><li className="">Dashboard</li></NavLink>
                     : 
-                    <div style={{display: 'flex'}}>
+                    <>
                        <NavLink to='/login'><li>Login</li></NavLink>
                        <NavLink to='/signin'><li>Join The OMDb</li></NavLink>
-                    </div>
+                    </>
                 }
                 
 

@@ -10,9 +10,15 @@ const LoginForm = (props) => {
     };
 
     return (
-        <form>
-            <input className='full' placeholder='Email or Username' onChange={handleInputChange} value={user.email} name='email' />
-            <input className='full' placeholder='Password' type='password' onChange={handleInputChange} value={user.password} name='password' />
+        <form className='form'>
+            <div className='form-item'>
+                <label>Email Address</label>
+                <input className='full' placeholder='name@domain.com' onChange={handleInputChange} value={user.email} name='email' />
+            </div>
+            <div className='form-item'>
+                <label>Password</label>
+                <input className='full' placeholder='Password' type='password' onChange={handleInputChange} value={user.password} name='password' />
+            </div>
             <LoginButton user={user} setUser={setUser} setMessage={props.setMessage} />
         </form>
     )

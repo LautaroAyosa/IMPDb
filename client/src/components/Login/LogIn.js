@@ -7,12 +7,14 @@ const LogIn = () => {
 
     if (user === null) {
         return (
-        <div className="loginContainer">
-            <aside>
-                <h1>Log In</h1>
-                <p>You don't have an account yet? <Link to='/signin'>Create an account</Link></p>
-                <LoginForm />
-            </aside>
+        <div className="full-width-container">        
+            <div className="loginContainer">
+                <aside className="glassmorphism">
+                    <h1>Log In</h1>
+                    <p>You don't have an account yet? <Link to='/signin'>Create an account</Link></p>
+                    <LoginForm />
+                </aside>
+            </div>
         </div>
         )
     }
